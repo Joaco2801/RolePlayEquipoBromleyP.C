@@ -10,7 +10,7 @@ public abstract class CreadorDePersonajes
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
     //inventario
-    private List<Items> objetos = new List<Items>();
+    private List<Objetos> Inventario = new List<Objetos>();
 
     
     
@@ -22,8 +22,40 @@ public abstract class CreadorDePersonajes
         this.vidaMaxima = vidaMaxima;
         this.Ataque = ataque; 
         this.Defensa = defensa;
-        thisObjetos = {};
+        this.Inventario = {};
     }
+
+    public void AgregarAlInventario(Objetos objeto)
+        {
+            
+            this.Inventario.add(objeto);
+            Console.WriteLine($"{objeto.TipodeObjeto} se guardó en el inventario.");
+        }
+
+    public void QuitarDelInventario(string nombre)
+        {
+            var objeto = objetos.Find(o => o.TipodeObjeto == nombre);
+            if (objeto != null)
+            {
+                this.Inventario.Remove(objeto);
+                Console.WriteLine($"Tiraste {nombre} del inventario.");
+            }
+            else
+            {
+                Console.WriteLine($"No tienes {nombre} en el inventario.");
+            }
+        }
+    
+    public void heal(){
+        this.vida = this.vidaMaxima;
+        Console.WriteLine($"Te curaste a {this.vidaMaxima} hp");
+    }
+
+    public void usarObjeto(string nombre){
+
+    }
+
+
 
     public abstract void BreveDescripcion();
 }
