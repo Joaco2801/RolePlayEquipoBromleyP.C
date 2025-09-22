@@ -25,4 +25,24 @@ namespace Program
             return $"{TipodeObjeto} ({Categoria}): {DescripcionDelObjeto}";
         }
     }
+
+    public static class PruebaObjetos
+    {
+        public static List<Objeto> InventarioInicial()
+        {
+            var objetos = new List<Objeto>
+            {
+                new Objeto("Poción de Vida", "Restaura toda la salud", CategoriaDeObjetos.Pociones),
+                new Objeto("Espada Larga", "Aumenta ataque en 5", CategoriaDeObjetos.Armas),
+                new Objeto("Armadura de Cuero", "Aumenta defensa en 5", CategoriaDeObjetos.Armaduras)
+            };
+
+            Console.WriteLine("=== Inventario Inicial Disponible ===");
+            foreach (var obj in objetos)
+                Console.WriteLine(obj);
+
+            Console.WriteLine();
+            return objetos;
+        }
+    }
 }

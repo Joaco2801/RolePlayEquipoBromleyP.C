@@ -4,7 +4,7 @@ namespace Program
     public class Magos : CreadorDePersonajes // parametros del mago
     {
         public Magos(string nombre) 
-            : base(nombre, 80, 10, 8, 25, 15, 10) { }
+            : base(nombre, 80, 10, 8) { }
 
         public override void BreveDescripcion()
         {
@@ -15,7 +15,7 @@ namespace Program
     public class Elfos : CreadorDePersonajes //parametros del elfo
     {
         public Elfos(string nombre) 
-            : base(nombre, 100, 20, 12, 12, 10, 18) { }
+            : base(nombre, 100, 10, 12) { }
 
         public override void BreveDescripcion()
         {
@@ -26,7 +26,7 @@ namespace Program
     public class Enanos : CreadorDePersonajes // parametros del Enano
     {
         public Enanos(string nombre) 
-            : base(nombre, 150, 18, 15, 10, 8, 16) { }
+            : base(nombre, 150, 10, 15) { }
 
         public override void BreveDescripcion()
         {

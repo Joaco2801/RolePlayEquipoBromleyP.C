@@ -1,26 +1,23 @@
-namespace Program;
 using System;
-public abstract class Personajes
+using System.Collections.Generic;
+namespace Program;
+public abstract class CreadorDePersonajes
 {
     public string Nombre { get; set; } // su identidad0
-    public int vida { get; set; } // su resiliencia
-    public int ataque { get; set; } // su fuerza
-    public int defensa { get; set; } // su resistencia
-    public int inteligencia { get; set; } // su proeza en la magia 
-    public int defensamagica { get; set; } // su fortitud mental ante la magia
-    public int velocidad { get; set; } // su agilidad
+    public int Vida { get; set; } // su resiliencia
+    public int Ataque { get; set; } // su fuerza
+    public int Defensa { get; set; } // su resistencia
+    //inventario 
+    public InventarioPersonajes Inventario { get; private set; } = new InventarioPersonajes();
     
 //todos los tipos de estadisticas necesarias para un personaje
-    public Personajes(string nombre, int  vida, int ataque,int defensa, int inteligencia, int defensamagica, int velocidad)
+    public CreadorDePersonajes(string nombre, int  vida, int ataque,int defensa)
     {
-        nombre = nombre;
-        vida = vida;
-        ataque = ataque;
-        defensa = defensa;
-        inteligencia = inteligencia;
-        defensamagica = defensamagica;
-        velocidad = velocidad;
+        this.Nombre = nombre;
+        this.Vida = vida;
+        this.Ataque = ataque;
+        this.Defensa = defensa;
     }
 
-    public abstract void TipoDeAtaque();
+    public abstract void BreveDescripcion();
 }
