@@ -10,6 +10,7 @@ namespace Program
         // Agregar un objeto al inventario
         public void AgregarAlInventario(Objeto objeto)
         {
+            
             objetos.Add(objeto);
             Console.WriteLine($"{objeto.TipodeObjeto} se guardó en el inventario.");
         }
