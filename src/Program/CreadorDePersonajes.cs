@@ -1,6 +1,5 @@
 
 using System;
-using System.Collections.Generic;
 namespace Program;
 public abstract class CreadorDePersonajes
 {
@@ -51,7 +50,20 @@ public abstract class CreadorDePersonajes
         Console.WriteLine($"Te curaste a {this.vidaMaxima} hp");
     }
 
-    public void usarObjeto(string nombre){
+    public void usarObjeto(Objeto objeto){
+        if (objeto.Categoria = Pociones){
+            this.vida = this.vida + objeto.stat;
+        }
+        else if(objeto.Categoria = Armaduras){
+            this.Defensa = this.Defensa + objeto.stat;
+        }
+        else if(objeto.Categoria = Armas){
+            this.Ataque = this.Ataque + objeto.stat;  
+        }
+        
+    }
+
+    public void atacar(CreadorDePersonajes personaje){
 
     }
 
