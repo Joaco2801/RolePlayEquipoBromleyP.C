@@ -1,4 +1,4 @@
-﻿namespace Program
+namespace Program
 {
     class Program
     {
@@ -29,8 +29,16 @@
             {
                 personaje.BreveDescripcion();
             }
+
+            // Mostrar los pisos uno a uno
+            for (int i = 1; i <= 4; i++)
+            {
+                var piso = new Pisos(i);
+                piso.MostrarPisos();
+            }
+
+            Console.WriteLine("Ya puedes irte.");
             Console.ReadKey();
-            
         }
     }
 }
