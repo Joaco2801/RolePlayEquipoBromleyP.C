@@ -1,5 +1,3 @@
-
-using System;
 namespace Program;
 public abstract class CreadorDePersonajes
 {
@@ -9,7 +7,7 @@ public abstract class CreadorDePersonajes
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
     //inventario
-    private List<Objetos> Inventario = new List<Objetos>();
+    private List<Objeto> Inventario = new List<Objeto>();
 
     
     
@@ -21,19 +19,19 @@ public abstract class CreadorDePersonajes
         this.vidaMaxima = vidaMaxima;
         this.Ataque = ataque; 
         this.Defensa = defensa;
-        this.Inventario = {};
+        this.Inventario = new List<Objeto>();
     }
 
-    public void AgregarAlInventario(Objetos objeto)
+    public void AgregarAlInventario(Objeto objeto)
         {
             
-            this.Inventario.add(objeto);
+            this.Inventario.Add(objeto);
             Console.WriteLine($"{objeto.TipodeObjeto} se guardó en el inventario.");
         }
 
     public void QuitarDelInventario(string nombre)
         {
-            var objeto = objetos.Find(o => o.TipodeObjeto == nombre);
+            var objeto = Inventario.Find(o => o.TipodeObjeto == nombre);
             if (objeto != null)
             {
                 this.Inventario.Remove(objeto);
@@ -46,19 +44,19 @@ public abstract class CreadorDePersonajes
         }
     
     public void heal(){
-        this.vida = this.vidaMaxima;
+        this.Vida = this.VidaMaxima;
         Console.WriteLine($"Te curaste a {this.vidaMaxima} hp");
     }
 
     public void usarObjeto(Objeto objeto){
-        if (objeto.Categoria = Pociones){
-            this.vida = this.vida + objeto.stat;
+        if (objeto.Categoria == CategoriaDeObjetos.Pociones){
+            this.Vida = this.Vida + objeto.Stat;
         }
-        else if(objeto.Categoria = Armaduras){
-            this.Defensa = this.Defensa + objeto.stat;
+        else if(objeto.Categoria == CategoriaDeObjetos.Armaduras){
+            this.Defensa = this.Defensa + objeto.Stat;
         }
-        else if(objeto.Categoria = Armas){
-            this.Ataque = this.Ataque + objeto.stat;  
+        else if(objeto.Categoria == CategoriaDeObjetos.Armas){
+            this.Ataque = this.Ataque + objeto.Stat;  
         }
         
     }
