@@ -29,14 +29,63 @@ namespace Program
             {
                 personaje.BreveDescripcion();
             }
-
-            // Mostrar los pisos uno a uno
-            for (int i = 1; i <= 4; i++)
+            //preguntar el ataque de los personajes//
+            Console.WriteLine("¿Quieres saber el ataque de los esclavos?");
+            string pregunta_de_daño = Console.ReadLine();
+            pregunta_de_daño = pregunta_de_daño.ToLower();
+            
+            while (pregunta_de_daño != "si" && pregunta_de_daño != "no")
             {
-                var piso = new Pisos(i);
-                piso.MostrarPisos();
+                Console.WriteLine("No me estás respondiendo la pregunta bien, dime si o no");
+                Console.WriteLine("¿Quieres saber el ataque de los esclavos?");
+                pregunta_de_daño = Console.ReadLine();
             }
-
+            if (pregunta_de_daño == "si")
+            {
+                foreach (var personaje in personajes)
+                {
+                    Console.WriteLine($"{personaje.Nombre} tiene: {personaje.Ataque} puntos de daño");
+                }
+            }
+            else if (pregunta_de_daño == "no")
+            {
+                Console.WriteLine("okay, señor experto, tu eres el jefe");
+            }
+            
+            //preguntar la defensa de un personaje//
+            
+            Console.WriteLine("¿Quieres saber la defensa de los esclavos?");
+            string pregunta_de_defensa = Console.ReadLine();
+            pregunta_de_defensa = pregunta_de_defensa.ToLower();
+            
+            while (pregunta_de_defensa != "si" && pregunta_de_defensa != "no")
+            {
+                Console.WriteLine("No me estás respondiendo la pregunta bien, dime si o no");
+                Console.WriteLine("¿Quieres saber el ataque de los esclavos?");
+                pregunta_de_defensa = Console.ReadLine();
+            }
+            if (pregunta_de_defensa == "si")
+            {
+                foreach (var personaje in personajes)
+                {
+                    Console.WriteLine($"{personaje.Nombre} tiene: {personaje.Defensa} puntos de daño");
+                }
+            }
+            else if (pregunta_de_defensa == "no")
+            {
+                Console.WriteLine("okay, señor experto, tu eres el jefe");
+            }
+            
+            
+            //atacar a un personaje//
+            
+            
+            
+            //Curar a un personaje si es que está herido//
+            
+            
+            
+            
             Console.WriteLine("Ya puedes irte.");
             Console.ReadKey();
         }

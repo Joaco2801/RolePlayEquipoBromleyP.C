@@ -2,8 +2,8 @@ namespace Program;
 public abstract class CreadorDePersonajes
 {
     public string Nombre { get; set; } // su identidad0
-    public int Vida { get; set; } // su resiliencia
-    public int vidaMaxima {get; set;}
+    public int VidaActual { get; set; } // su resiliencia
+    public int VidaMaxima {get; set;}
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
     //inventario
@@ -12,11 +12,11 @@ public abstract class CreadorDePersonajes
     
     
 //todos los tipos de estadisticas necesarias para un personajeas
-    public CreadorDePersonajes(string nombre, int  vidaMaxima, int ataque,int defensa)
+    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa)
     {
         this.Nombre = nombre;
-        this.Vida = vidaMaxima;
-        this.vidaMaxima = vidaMaxima;
+        this.VidaActual = vidamaxima;
+        this.VidaMaxima = vidamaxima;
         this.Ataque = ataque; 
         this.Defensa = defensa;
         this.Inventario = new List<Objeto>();
@@ -44,13 +44,13 @@ public abstract class CreadorDePersonajes
         }
     
     public void heal(){
-        this.Vida = this.VidaMaxima;
-        Console.WriteLine($"Te curaste a {this.vidaMaxima} hp");
+        this.VidaActual = this.VidaMaxima;
+        Console.WriteLine($"Te curaste a {this.VidaMaxima} hp");
     }
 
     public void usarObjeto(Objeto objeto){
         if (objeto.Categoria == CategoriaDeObjetos.Pociones){
-            this.Vida = this.Vida + objeto.Stat;
+            this.VidaActual = this.VidaActual + objeto.Stat;
         }
         else if(objeto.Categoria == CategoriaDeObjetos.Armaduras){
             this.Defensa = this.Defensa + objeto.Stat;
