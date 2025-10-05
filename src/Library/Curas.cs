@@ -3,21 +3,27 @@ namespace Program;
 public class Curas
 {
     public int PocionDeVida { get; set; }
-    public void curación(int PocionDeVida)
+
+    public Curas(int cantidad)
     {
-        PocionDeVida = PocionDeVida;
+        this.PocionDeVida = cantidad;
     }
 
-    public void curar(CreadorDePersonajes personaje)
+    public void Curar(CreadorDePersonajes personaje)
     {
         if (personaje == null) return;
-        
-        personaje.VidaActual += PocionDeVida;
 
-        if (personaje.VidaActual > personaje.VidaMaxima) return;
+        int vidaAntes = personaje.VidaActual;
+
+        personaje.VidaActual += this.PocionDeVida;
+
+        if (personaje.VidaActual > personaje.VidaMaxima)
         {
             personaje.VidaActual = personaje.VidaMaxima;
         }
-        Console.WriteLine($"{personaje.Nombre} se curó {PocionDeVida} puntos de vida, está al maximo");
+
+        int vidaCurada = personaje.VidaActual - vidaAntes;
+
+        Console.WriteLine($"{personaje.Nombre} se curó {vidaCurada} puntos de vida. Vida actual: {personaje.VidaActual}/{personaje.VidaMaxima}");
     }
 }

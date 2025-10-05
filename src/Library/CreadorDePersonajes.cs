@@ -61,11 +61,29 @@ public abstract class CreadorDePersonajes
         
     }
 
-    public void atacar(CreadorDePersonajes personaje){
-
+    public void atacar(CreadorDePersonajes objetivo)
+    {
+        Console.WriteLine($"{this.Nombre} ataca a {objetivo.Nombre} con {this.Ataque} de ataque.");
+        objetivo.Damages(this.Ataque);
     }
 
+    public void Damages(int Hurts)
+    {
+        int Damaje = Hurts - this.Defensa;
 
+        if (Damaje < 0)
+        {
+            Damaje = 0; // No se puede curar con daño negativo
+        }
 
+        this.VidaActual -= Damaje;
+
+        if (this.VidaActual < 0)
+        {
+            this.VidaActual = 0; // Vida no puede ser negativa
+        }
+
+        Console.WriteLine($"{this.Nombre} recibió {Damaje} de daño. Vida restante: {this.VidaActual}/{this.VidaMaxima}");
+    }
     public abstract void BreveDescripcion();
 }
