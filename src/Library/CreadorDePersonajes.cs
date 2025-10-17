@@ -6,64 +6,102 @@ public abstract class CreadorDePersonajes
     public int VidaMaxima {get; set;}
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
+    public Item Armadura {get; set; }
+    public Item Arma {get; set; }
+
+
+
     
     //inventario
-    public List<Objeto> Inventario = new List<Objeto>();
+    public List<Items> Inventario = new List<Items>();
+    public int capacidadInventario = 10; 
 
     
 //todos los tipos de estadisticas necesarias para un personajeas
-    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa)
+    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa, Item armadura, Item arma)
     {
         this.Nombre = nombre;
         this.VidaActual = vidamaxima;
         this.VidaMaxima = vidamaxima;
         this.Ataque = ataque; 
         this.Defensa = defensa;
-        this.Inventario = new List<Objeto>();
+        this.Inventario = new List<Item>();
+        this.Armadura = armadura;
+        this.Arma = arma; 
     }
 
-    public void AgregarAlInventario(Objeto objeto)
+    public void AgregarAlInventario(Item objeto)
+    {
+        if (this.Inventario.Count == this.capacidadInventario)
         {
-            
+            Console.WriteLine("El inventario esta lleno!");
+        } 
+        else 
+        {
             this.Inventario.Add(objeto);
-            Console.WriteLine($"{objeto.TipodeObjeto} se guardó en el inventario.");
+            Console.WriteLine($"{objeto.nombre} se guardó en el inventario.");
+
         }
+    }
 
     public void QuitarDelInventario(string nombre)
-        {
-            var objeto = Inventario.Find(o => o.TipodeObjeto == nombre);
-            if (objeto != null)
-            {
-                this.Inventario.Remove(objeto);
-                Console.WriteLine($"Tiraste {nombre} del inventario.");
+    {
+        foreach (var objeto in Inventario){
+            if (objeto.nombre == nombre){
+                Inventario.Remove(objeto);
+                Console.WriteLine($"Tiraste {nombre} del nombre");
+                return;
+            }
+        }   
+        Console.WriteLine($"No tienes {nombre} en tu inventario");
+    }
+    
+    public void heal(Item objeto){
+        if (objeto is Potion pocion){
+            
+            if (this.VidaActual + objeto.AgregadoVida < this.VidaMaxima){
+           
+                this.VidaActual += pocion.AgregadoVida;
+                Console.WriteLine($"Tu vida actual es {this.VidaActual}");
+        
             }
             else
             {
-                Console.WriteLine($"No tienes {nombre} en el inventario.");
+                this.VidaActual = this.VidaMaxima;
+                Console.WriteLine($"Te curaste a {this.VidaMaxima} hp");
             }
         }
-    
-    public void heal(){
-        this.VidaActual = this.VidaMaxima;
-        Console.WriteLine($"Te curaste a {this.VidaMaxima} hp");
+        else{
+            Console.WriteLine("Este item no te puede curar!");
+        }
+
     }
 
-    public void usarObjeto(Objeto objeto){
-        if (objeto.Categoria == CategoriaDeObjetos.Pociones){
-            this.VidaActual = this.VidaActual + objeto.Stat;
+    public void EquiparObjeto(Item objeto){
+        if (objeto is Potion pocion){
+            Console.WriteLine("No podes equiparte una poción");
         }
-        else if(objeto.Categoria == CategoriaDeObjetos.Armaduras){
-            this.Defensa = this.Defensa + objeto.Stat;
+        else if(objeto is Armor armadura){
+            this.Armadura = armadura;
+            this.Defensa += armadura.AgregadoArmadura;
         }
-        else if(objeto.Categoria == CategoriaDeObjetos.Armas){
-            this.Ataque = this.Ataque + objeto.Stat;  
+        else if(objeto is Weapon arma) {
+            this.Arma = arma;
+            this.Ataque += arma.AgregadoAtaque;  
+        }
+        else if (objeto is Spellbook libro){
+            this.Arma = libro;
+            this.Ataque += libro.AgregadoAtaque;
+        }
+        else{
+            Console.WriteLine("No puedes equiparte esto!");
         }
         
     }
 
     public void atacar(CreadorDePersonajes objetivo)
     {
-        Console.WriteLine($"{this.Nombre} ataca a {objetivo.Nombre} con {this.Ataque} de ataque.");
+        Console.WriteLine($"{this.Nombre} ataca a {objetivo.Nombre} con {this.Arma} y le hizo {this.Ataque} de daño");
         objetivo.Damages(this.Ataque);
     }
 
