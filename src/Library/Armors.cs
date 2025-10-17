@@ -1,6 +1,6 @@
 namespace Program;
 
-public class Armors
+public class Armors : Objeto
 {
     
 }
