@@ -46,7 +46,7 @@ namespace Program
             Console.WriteLine("Este es tu inventario:");
             foreach (var objeto in objetos)
             {
-                Console.WriteLine($"- {objeto.TipodeObjeto}: {objeto.DescripcionDelObjeto}");
+                Console.WriteLine($"{objeto.nombre} : ");
             }
             Console.WriteLine($"Espacio disponible: {CAPACIDAD_MAXIMA - objetos.Count} slots");
         }

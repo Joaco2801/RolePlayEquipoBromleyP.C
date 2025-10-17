@@ -6,10 +6,10 @@ public abstract class CreadorDePersonajes
     public int VidaMaxima {get; set;}
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
-    //inventario
-    private List<Objeto> Inventario = new List<Objeto>();
-
     
+    //inventario
+    public List<Objeto> Inventario = new List<Objeto>();
+
     
 //todos los tipos de estadisticas necesarias para un personajeas
     public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa)

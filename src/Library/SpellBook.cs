@@ -1,6 +1,6 @@
 namespace Program;
 
-public class SpellBoock
-{
+public class SpellBook : Elementos;
+{ 
     
 }
