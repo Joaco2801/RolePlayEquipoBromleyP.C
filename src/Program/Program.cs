@@ -4,6 +4,13 @@ namespace Program
     {
         static void Main()
         {
+            
+            SpelBook Grimoar = new SpelBook("Grimoar");
+
+            Grimoar.AgregarHechizos(new Spel("Bola de Fuego", 30));
+            Grimoar.AgregarHechizos(new Spel("Rayo de Hielo", 25));
+            Grimoar.AgregarHechizos(new Spel("Pedrazo Cosmico", 35));
+            
             Console.WriteLine("Hora de empezar otra vez... Elige el nombre de tus tres esclavos, Maestro de los sádicos");
 
             var personajes = new List<CreadorDePersonajes>();

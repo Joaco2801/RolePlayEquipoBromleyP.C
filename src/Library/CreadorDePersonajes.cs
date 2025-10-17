@@ -2,8 +2,8 @@ namespace Program;
 public abstract class CreadorDePersonajes
 {
     public string Nombre { get; set; } // su identidad0
-    public int VidaActual { get; set; } // su resiliencia
-    public int VidaMaxima {get; set;}
+    public int VidaActual { get; set; } 
+    public int VidaMaxima {get; set;} // su resiliencia
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
     
