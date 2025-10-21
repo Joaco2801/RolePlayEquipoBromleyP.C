@@ -1,6 +1,6 @@
 using Program;
  //enemigos genericos con descripciones inspiradas en el juego de Roll Dungeos and Dragons
-public class Goblin : CreadorDePersonajes
+public class Goblin : CharacterCreator
 {
     public Goblin(string nombre)
         : base(nombre,15,15,5) 
@@ -13,7 +13,7 @@ public class Goblin : CreadorDePersonajes
     }
 }
 
-public class AltoGoblin : CreadorDePersonajes
+public class AltoGoblin : CharacterCreator
 {
     public AltoGoblin(string nombre)
         : base(nombre, 25, 8, 6)
@@ -26,7 +26,7 @@ public class AltoGoblin : CreadorDePersonajes
     }
 }
 
-public class Orcos : CreadorDePersonajes
+public class Orcos : CharacterCreator
 {
     public Orcos(string nombre)
         : base(nombre, 65, 18, 2)
@@ -39,7 +39,7 @@ public class Orcos : CreadorDePersonajes
     }
 }
 
-public class Observador : CreadorDePersonajes
+public class Observador : CharacterCreator
 {
     public Observador(string nombre)
         : base(nombre, 200, 15, 12)
