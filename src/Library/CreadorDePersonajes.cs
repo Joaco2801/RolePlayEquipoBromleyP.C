@@ -8,7 +8,7 @@ public abstract class CreadorDePersonajes
     public int Defensa { get; set; } // su resistencItems
     
     //inventario
-    public List<Objeto> Inventario = new List<Objeto>();
+    public List<Item> Inventario = new List<Item>();
 
     
 //todos los tipos de estadisticas necesarias para un personajeas
@@ -19,19 +19,19 @@ public abstract class CreadorDePersonajes
         this.VidaMaxima = vidamaxima;
         this.Ataque = ataque; 
         this.Defensa = defensa;
-        this.Inventario = new List<Objeto>();
+        this.Inventario = new List<Item>();
     }
 
-    public void AgregarAlInventario(Objeto objeto)
+    public void AgregarAlInventario(Item objeto)
         {
             
             this.Inventario.Add(objeto);
-            Console.WriteLine($"{objeto.TipodeObjeto} se guardó en el inventario.");
+            Console.WriteLine($"{objeto.nombre} se guardó en el inventario.");
         }
 
     public void QuitarDelInventario(string nombre)
         {
-            var objeto = Inventario.Find(o => o.TipodeObjeto == nombre);
+            var objeto = Inventario.Find(o => o.nombre == nombre);
             if (objeto != null)
             {
                 this.Inventario.Remove(objeto);
@@ -47,20 +47,6 @@ public abstract class CreadorDePersonajes
         this.VidaActual = this.VidaMaxima;
         Console.WriteLine($"Te curaste a {this.VidaMaxima} hp");
     }
-
-    public void usarObjeto(Objeto objeto){
-        if (objeto.Categoria == CategoriaDeObjetos.Pociones){
-            this.VidaActual = this.VidaActual + objeto.Stat;
-        }
-        else if(objeto.Categoria == CategoriaDeObjetos.Armaduras){
-            this.Defensa = this.Defensa + objeto.Stat;
-        }
-        else if(objeto.Categoria == CategoriaDeObjetos.Armas){
-            this.Ataque = this.Ataque + objeto.Stat;  
-        }
-        
-    }
-
     public void atacar(CreadorDePersonajes objetivo)
     {
         Console.WriteLine($"{this.Nombre} ataca a {objetivo.Nombre} con {this.Ataque} de ataque.");
