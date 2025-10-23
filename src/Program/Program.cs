@@ -82,16 +82,18 @@ namespace Program
             {
                 Console.WriteLine("okay, señor experto, tu eres el jefe");
             }
+
             
+
             
             //atacar a un personaje//
-            Console.WriteLine("Quieres torturar a algino de tus esclavos?");
+                Console.WriteLine("Quieres torturar a algino de tus esclavos?");
             string PreguntaDeTortura = Console.ReadLine();
-            
+
             if (PreguntaDeTortura == "si")
             {
                 Console.WriteLine("¿A quién quieres lastimar? (Procura escribir el nombre exactamente igual)");
-    
+
                 foreach (var personaje in personajes)
                 {
                     Console.WriteLine($"¿{personaje.Nombre}?");
@@ -100,25 +102,29 @@ namespace Program
                 string torturado = Console.ReadLine()?.ToLower();
                 CreadorDePersonajes objetivo = personajes.FirstOrDefault(p => p.Nombre.ToLower() == torturado);
 
-                if (objetivo != null)
+                while (objetivo.VidaActual > 0)
                 {
-                    Console.WriteLine("¿Cuánto daño quieres hacerle?");
-                    if (int.TryParse(Console.ReadLine(), out int Hurts))
+                    if (objetivo != null)
                     {
-                        objetivo.Damages(Hurts);
+                        Console.WriteLine("¿Cuánto daño quieres hacerle?");
+                        if (int.TryParse(Console.ReadLine(), out int Hurts))
+                        {
+                            objetivo.Damages(Hurts);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No ingresaste un número válido.");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("No ingresaste un número válido.");
+                        Console.WriteLine("No le pusiste así a ninguno de ellos.");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("No le pusiste así a ninguno de ellos.");
-                }
             }
+            
             //Curar a un personaje si es que está herido//
-            string objetivoCuracion = Console.ReadLine()?.ToLower();
+                string objetivoCuracion = Console.ReadLine()?.ToLower();
                         
             CreadorDePersonajes personajeACurar = personajes.FirstOrDefault(p => p.Nombre.ToLower() == objetivoCuracion);
             
