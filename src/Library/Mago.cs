@@ -13,3 +13,5 @@
         // lógica de curación
     }
 }
+
+// gurises si ven esto y saben arreglarlo, vendria muy bien. Gracias

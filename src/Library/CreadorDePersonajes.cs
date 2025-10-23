@@ -3,7 +3,9 @@ public abstract class CreadorDePersonajes
 {
     public string Nombre { get; set; } // su identidad0
     public int VidaActual { get; set; } 
-    public int VidaMaxima {get; set;} // su resiliencia
+    
+    public int puntosdeVictoria { get; set; } 
+    public int VidaMaxima { get; set; } // su resiliencia
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
     
@@ -12,9 +14,10 @@ public abstract class CreadorDePersonajes
 
     
 //todos los tipos de estadisticas necesarias para un personajeas
-    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa)
+    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa, int puntosdeVictoria)
     {
         this.Nombre = nombre;
+        this.puntosdeVictoria = puntosdeVictoria;
         this.VidaActual = vidamaxima;
         this.VidaMaxima = vidamaxima;
         this.Ataque = ataque; 

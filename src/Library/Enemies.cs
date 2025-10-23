@@ -3,7 +3,7 @@ using Program;
 public class Goblin : CreadorDePersonajes
 {
     public Goblin(string nombre)
-        : base(nombre,15,15,5) 
+        : base(nombre,15,15,5,100) 
     {
     }
 
@@ -16,7 +16,7 @@ public class Goblin : CreadorDePersonajes
 public class AltoGoblin : CreadorDePersonajes
 {
     public AltoGoblin(string nombre)
-        : base(nombre, 25, 8, 6)
+        : base(nombre, 25, 8, 6, 100)
     {
     }
 
@@ -29,7 +29,7 @@ public class AltoGoblin : CreadorDePersonajes
 public class Orcos : CreadorDePersonajes
 {
     public Orcos(string nombre)
-        : base(nombre, 65, 18, 2)
+        : base(nombre, 65, 18, 2, 100)
     {
     }
 
@@ -42,7 +42,7 @@ public class Orcos : CreadorDePersonajes
 public class Observador : CreadorDePersonajes
 {
     public Observador(string nombre)
-        : base(nombre, 200, 15, 12)
+        : base(nombre, 200, 15, 12, 100)
     {
 
     }
