@@ -1,5 +1,5 @@
 namespace Program;
-public abstract class CreadorDePersonajes
+public abstract class CharacterCreator
 {
     public string Nombre { get; set; } // su identidad0
     public int VidaActual { get; set; } 
@@ -12,7 +12,7 @@ public abstract class CreadorDePersonajes
 
     
 //todos los tipos de estadisticas necesarias para un personajeas
-    public CreadorDePersonajes(string nombre, int  vidamaxima, int ataque,int defensa)
+    public CharacterCreator(string nombre, int  vidamaxima, int ataque,int defensa)
     {
         this.Nombre = nombre;
         this.VidaActual = vidamaxima;
@@ -47,7 +47,7 @@ public abstract class CreadorDePersonajes
         this.VidaActual = this.VidaMaxima;
         Console.WriteLine($"Te curaste a {this.VidaMaxima} hp");
     }
-    public void atacar(CreadorDePersonajes objetivo)
+    public void atacar(CharacterCreator objetivo)
     {
         Console.WriteLine($"{this.Nombre} ataca a {objetivo.Nombre} con {this.Ataque} de ataque.");
         objetivo.Damages(this.Ataque);

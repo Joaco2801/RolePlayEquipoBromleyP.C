@@ -13,7 +13,7 @@ namespace Program
             
             Console.WriteLine("Hora de empezar otra vez... Elige el nombre de tus tres esclavos, Maestro de los sádicos");
 
-            var personajes = new List<CreadorDePersonajes>();
+            var personajes = new List<CharacterCreator>();
 
             Console.Clear();
             Console.Write("Elige el nombre de este pobre estudioso (Mago): ");
@@ -98,7 +98,7 @@ namespace Program
                 }
 
                 string torturado = Console.ReadLine()?.ToLower();
-                CreadorDePersonajes objetivo = personajes.FirstOrDefault(p => p.Nombre.ToLower() == torturado);
+                CharacterCreator objetivo = personajes.FirstOrDefault(p => p.Nombre.ToLower() == torturado);
 
                 if (objetivo != null)
                 {
@@ -120,7 +120,7 @@ namespace Program
             //Curar a un personaje si es que está herido//
             string objetivoCuracion = Console.ReadLine()?.ToLower();
                         
-            CreadorDePersonajes personajeACurar = personajes.FirstOrDefault(p => p.Nombre.ToLower() == objetivoCuracion);
+            CharacterCreator personajeACurar = personajes.FirstOrDefault(p => p.Nombre.ToLower() == objetivoCuracion);
             
             if (personajeACurar != null)
             {

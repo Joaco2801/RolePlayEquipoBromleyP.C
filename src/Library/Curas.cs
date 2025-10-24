@@ -9,7 +9,7 @@ public class Curas
         this.PocionDeVida = cantidad;
     }
 
-    public void Curar(CreadorDePersonajes personaje)
+    public void Curar(CharacterCreator personaje)
     {
         if (personaje == null) return;
 
