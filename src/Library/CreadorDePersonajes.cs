@@ -6,7 +6,7 @@ public abstract class CharacterCreator
     public int VidaMaxima {get; set;} // su resiliencia
     public int Ataque { get; set; } // su fuerza
     public int Defensa { get; set; } // su resistencItems
-    
+    public bool EstaVivo => VidaActual > 0; // checkeo de vida para las rondas
     //inventario
     public List<Item> Inventario = new List<Item>();
 

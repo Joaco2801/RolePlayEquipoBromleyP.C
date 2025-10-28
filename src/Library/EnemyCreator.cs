@@ -7,6 +7,7 @@ public abstract class EnemyCreator
     public int Ataque { get; set; } 
     public int Defensa { get; set; } 
     
+    public bool EstaVivo => VidaActual > 0;
 
     public List<Item> Inventario = new List<Item>();
     
@@ -64,4 +65,5 @@ public abstract class EnemyCreator
 
         Console.WriteLine($"{this.Nombre} recibió {Damaje} de daño. Vida restante: {this.VidaActual}/{this.VidaMaxima}");
     }
+    public abstract void BreveDescripcion();
 }

@@ -21,7 +21,7 @@ namespace LibraryTests
         {
             var defensor = new Program.Enanos("EnanoTest") { Defensa = 20, VidaActual = 100, VidaMaxima = 150 };
             // Enemigos en src/Library/Enemigos.cs están en el namespace global, referenciamos con global::
-            var atacante = new global::Goblin("GoblinTest") { Ataque = 5 };
+            var atacante = new global::EnemigoComún("GoblinTest") { Ataque = 5 };
 
             // Sanity: defensa mayor que ataque
             Assert.Greater(defensor.Defensa, atacante.Ataque);
